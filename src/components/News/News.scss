@@ -1,0 +1,26 @@
+.news{
+  padding: 10px;
+  // background-color: rgb(244, 247, 224);
+  color: rgb(238, 238, 230);
+  background: url('../../imgs/news3.gif') 0 0 repeat;
+  font-size: 15px;
+  font-weight: bold;
+  .title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px
+  }
+  .news-title{
+    margin-top: 15px;
+    font-size: 17px;
+    text-align: center;
+    font-style: italic;
+  }
+  box-shadow: 7px 9px 11px #000;
+  .count-news{
+    margin-top: 10px;
+    font-style: italic;
+    text-align: right;
+  }
+}
+

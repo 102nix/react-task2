@@ -1,0 +1,42 @@
+body{
+  background-color: rgb(237, 243, 241);
+  padding: 0;
+  margin: 0;
+}
+.App{
+  display: flex;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1024px;
+  height: 100vh;
+  max-height: 1366px;
+  background-color: rgb(161, 179, 216);
+}
+.content{
+  max-width: 749px;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0 10px;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+@media(max-width: 992px) {
+  .App{
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+  }
+}
+@media(max-width: 414px){
+  .App{
+    .container{
+      margin: 0;
+      padding: 0;
+    }
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+  }
+}
