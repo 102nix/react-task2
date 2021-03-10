@@ -1,4 +1,3 @@
-import { authAPI } from '../api/api'
 import { 
   AnswerResponseNews, 
   AnswerResponseProfile, 
@@ -11,8 +10,7 @@ import {
   ProfileSagaType, 
   ResetLoginType, 
   SetLoaderType, 
-  SetLoginType, 
-  ThunkType } from '../types/ACTypes'
+  SetLoginType } from '../types/ACTypes'
 
 export const setLogin = (status: string, email: string): SetLoginType => ({type: constsReduser.LOGIN, status, email})
 export const resetLogin = (): ResetLoginType => ({type: constsReduser.RESET_LOGIN})

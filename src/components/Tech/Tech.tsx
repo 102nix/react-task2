@@ -12,7 +12,8 @@ const Tech: React.FC = () => {
               <div className="tech-text">
                 React, React-router-dom, React Function Components.<br/>
                 React hooks, React-Typescript.<br/>
-                Redux, Redux-form, Redux-thunk, React-redux<br/>
+                Redux, Redux-saga, React-redux.<br/>
+                Formik, Yup.<br/>
                 Bootstrap, React-bootstrap, Node-sass, CSS Flexbox<br/>
                 LocalStorage<br/>
                 Axios.<br/>
