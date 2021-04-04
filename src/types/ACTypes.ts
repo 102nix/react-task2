@@ -1,6 +1,4 @@
-import { ThunkAction } from "redux-thunk"
-import { AppStateType } from "../redux/store"
-
+import { actions } from "../redux/AC"
 
 export enum constsReduser {
   LOGIN = 'LOGIN',
@@ -39,37 +37,6 @@ export type InitialStateType = {
   profile: null | AnswerResponseProfile
 }
 
-export type ActionsType = SetLoginType | ResetLoginType | SetLoaderType | GetNewsType | GetProfileType
+type PropertiesType<T> = T extends {[key: string]: infer U}? U : never
+export type ActionsType = ReturnType<PropertiesType<typeof actions>>
 
-export type SetLoginType = {
-  type: constsReduser.LOGIN
-  status: string
-  email: string
-}
-export type ResetLoginType = {
-  type: constsReduser.RESET_LOGIN
-}
-export type SetLoaderType = {
-  type: constsReduser.SET_LOADER
-  val: boolean
-}
-export type GetNewsType = {
-  type: constsReduser.GET_NEWS
-  news: AnswerResponseNews
-}
-export type GetProfileType = {
-  type: constsReduser.GET_PROFILE
-  profile: AnswerResponseProfile
-}
-export type GetNewsSagaType = {
-  type: constsReduser.GET_NEWS_SAGA
-}
-export type LoginedSagaType = {
-  type: constsReduser.LOGINED_SAGA
-  dataUserForm: FormUsesData
-}
-export type ProfileSagaType ={
-  type: constsReduser.GET_PROFILE_SAGA
-}
-
-export type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>

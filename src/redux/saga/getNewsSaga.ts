@@ -1,13 +1,13 @@
 import { authAPI } from '../../api/api'
 import { call, put, takeEvery } from 'redux-saga/effects'
 import { InewsSaga } from '../../types/SagaTypes'
-import { getNews } from '../AC'
+import { actions } from '../AC'
 import { constsReduser } from '../../types/ACTypes'
 
 function* newsWorker (action: InewsSaga) {
   try {
     const response: InewsSaga = yield call (authAPI.getNews)
-    yield put (getNews(response.data)) 
+    yield put (actions.getNews(response.data)) 
   } catch (error) {
     console.log(error)
   }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
-import { getProfileSaga } from '../../redux/AC'
+import { useDispatch, useSelector } from 'react-redux'
+import { actions } from '../../redux/AC'
 import { useHistory } from 'react-router-dom'
 import './Profile.scss'
 // Png's for <img/>:
@@ -13,18 +13,21 @@ import twitter from '../../imgs/twitter.png'
 import twitch from '../../imgs/twitch.png'
 //types: string
 import { AppStateType } from '../../redux/store'
-import { ProfileStateType, ProfileTypes } from '../../types/ProfileTypes'
 
-const Profile: React.FC<ProfileTypes> = props => {
+export const Profile: React.FC = () => {
 
   const history = useHistory()
+
+  const dispatch = useDispatch()
+  const profile = useSelector((state: AppStateType) => state.reducer.profile)
+  // const logined = useSelector((state: AppStateType) => state.reducer.logined)
 
   const imgSub = [vk, telegram, web, youtube, twitter, twitch]
 
     useEffect(() => {
       const checkLogin = localStorage.getItem('login') || 'err'
       if (checkLogin !== 'ok') history.push('/')
-      props.getProfileSaga()
+      dispatch(actions.getProfileSaga())
     }, [])
 
     return (
@@ -38,9 +41,9 @@ const Profile: React.FC<ProfileTypes> = props => {
               <img className="profile-img" src={profilePng} alt="Card image cap" />
             </div>
             <div className="col-12 col-sm-6">
-              <div className="profile-title">Пользователь с <strong>userId</strong>: {props.profile?.userId}</div>
-              <div className="profile-city">Город: <strong>{props.profile?.city}</strong></div>
-              <div>Знание языков: <strong>{props.profile?.languages[0]}, {props.profile?.languages[1]}</strong></div>
+              <div className="profile-title">Пользователь с <strong>userId</strong>: {profile?.userId}</div>
+              <div className="profile-city">Город: <strong>{profile?.city}</strong></div>
+              <div>Знание языков: <strong>{profile?.languages[0]}, {profile?.languages[1]}</strong></div>
             </div>
           </div>
           <div className="row">
@@ -50,13 +53,13 @@ const Profile: React.FC<ProfileTypes> = props => {
             <div className="col-12">
               <div className="social-actions">
                 {
-                  props.profile?.social === undefined &&
+                  profile?.social === undefined &&
                   <div className="spinner-border" role="status">
                     <span className="sr-only">Loading...</span>
                   </div>
                 }
                 {
-                  props.profile?.social.map((soc, i) => (
+                  profile?.social.map((soc, i) => (
                     <a 
                       className="soc-img" 
                       key={soc.label} 
@@ -74,11 +77,4 @@ const Profile: React.FC<ProfileTypes> = props => {
       </div>
     )
 }
-const mapStateToprops = (state: AppStateType): ProfileStateType => {
-  return {
-    profile: state.reducer.profile,
-    logined: state.reducer.logined,
-  }
-}
-const connector = connect(mapStateToprops, { getProfileSaga })
-export default connector(Profile)
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Tech.scss';
 
-const Tech: React.FC = () => {
+export const Tech: React.FC = () => {
   
   return (
     <div className="tech">
@@ -24,4 +24,3 @@ const Tech: React.FC = () => {
     </div>
   )
 }
-export default Tech

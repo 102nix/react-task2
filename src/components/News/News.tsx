@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import './News.scss'
-import { getNewsSaga } from '../../redux/AC'
+import { actions } from '../../redux/AC'
 //types:
 import { AppStateType } from '../../redux/store'
-import { NewsStateType, NewsTypes } from '../../types/NewsTypes'
 
- const News: React.FC<NewsTypes> = props => {
+export const News: React.FC = () => {
+
+  const dispatch = useDispatch()
+  const news = useSelector((state: AppStateType) => state.reducer.news)
 
    useEffect(() => {
-    props.getNewsSaga()
+    dispatch(actions.getNewsSaga())
    }, [])
    
   return (
@@ -19,21 +21,21 @@ import { NewsStateType, NewsTypes } from '../../types/NewsTypes'
           <div className="news">
             <div className="title">Новости</div>
             {
-              props.news?.data === undefined &&
+              news?.data === undefined &&
               <div className="spinner-border" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
             }
             {
-              props.news?.data.map(news => (
-                <div key={news.title}>
-                  <div className="news-title">{news.title}</div>
-                  <div className="new-text">{news.text}</div>
+              news?.data.map(n => (
+                <div key={n.title}>
+                  <div className="news-title">{n.title}</div>
+                  <div className="new-text">{n.text}</div>
                 </div> )
               )        
             }
             <div className="count-news">
-              Всего новостей: { props.news?.data.length}
+              Всего новостей: { news?.data.length}
             </div>
           </div>
         </div>
@@ -42,10 +44,3 @@ import { NewsStateType, NewsTypes } from '../../types/NewsTypes'
   )
 }
 
-const mapStateToProps = (state: AppStateType): NewsStateType => {
-  return {
-    news: state.reducer.news
-  }
-}
-const connector = connect(mapStateToProps, { getNewsSaga })
-export default connector(News)

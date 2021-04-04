@@ -1,19 +1,19 @@
 import React from 'react'
 import { useHistory, NavLink } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Navbar from 'react-bootstrap/Navbar'
 import './NavbarComponent.scss'
-import { resetLogin } from '../../redux/AC' 
-//types:
-import { NavbarDispatchType } from '../../types/NavbarTypes'
+import { actions } from '../../redux/AC' 
 
-const NavbarMenu: React.FC<NavbarDispatchType> = props => {
+export const NavbarMenu: React.FC = () => {
   
   const history = useHistory()
+
+  const dispatch = useDispatch()
   
   const handlerExit = () => {
     delete localStorage.login
-    props.resetLogin()
+    dispatch(actions.resetLogin())
     history.push('/')
   }
 
@@ -34,5 +34,4 @@ const NavbarMenu: React.FC<NavbarDispatchType> = props => {
     </Navbar>
   )
 }
-const connector = connect(null, { resetLogin })
-export default connector(NavbarMenu)
+

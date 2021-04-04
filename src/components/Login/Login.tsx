@@ -1,24 +1,28 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import './FormLogin.scss'
 import { Input } from '../InputElement/Input'
-import { loginedSaga, setLoader } from '../../redux/AC'
+import { actions } from '../../redux/AC'
 //types:
 import { AppStateType } from '../../redux/store'
-import { LoginStateType, LoginTypes } from '../../types/LoginTypes'
 import { FormDataLogin } from '../../types/LoginFormTypes'
 
-const Login: React.FC<LoginTypes> = props => {
+export const Login: React.FC = () => {
+
+  const dispatch = useDispatch()
+  const logined = useSelector((state: AppStateType) => state.reducer.logined)
+  const email = useSelector((state: AppStateType) => state.reducer.email)
+  const load = useSelector((state: AppStateType) => state.reducer.load)
 
   useEffect(() => {
-    if (props.logined === 'ok') {
-      localStorage.setItem('login', props.logined)
+    if (logined === 'ok') {
+      localStorage.setItem('login', logined)
       history.push('/profile')
     }
-  }, [props.logined])
+  }, [logined])
 
   const history = useHistory()
   
@@ -34,7 +38,7 @@ const Login: React.FC<LoginTypes> = props => {
         <div className="row">
           <Formik
             initialValues={{
-              email: props.email,
+              email: email,
               password: ''
             }}
             validationSchema={Yup.object({
@@ -44,9 +48,8 @@ const Login: React.FC<LoginTypes> = props => {
                 .required('Required')
             })}
             onSubmit = {(dataForm: FormDataLogin): void => {
-              console.log('data Submit',dataForm)
-              props.setLoader(true)
-              props.loginedSaga(dataForm)
+              dispatch(actions.setLoader(true))
+              dispatch(actions.loginedSaga(dataForm))
             }}
           >
             <Form className="col-8 log-form">
@@ -66,13 +69,13 @@ const Login: React.FC<LoginTypes> = props => {
               />
               <div className="add-action">
                 {
-                  !props.load &&
+                  !load &&
                   <button className="btn btn-success">
                     Login
                   </button>
                 }
                 { 
-                  props.load &&
+                  load &&
                   <button className="btn btn-primary" type="button" disabled>
                     <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Logining...
@@ -86,14 +89,3 @@ const Login: React.FC<LoginTypes> = props => {
     </div>
   )
 }
-
-const mapStateToProps = (state: AppStateType): LoginStateType => {
-  return {
-    logined: state.reducer.logined,
-    email: state.reducer.email,
-    load: state.reducer.load
-  }
-}
-
-const connector = connect(mapStateToProps, { loginedSaga, setLoader })
-export default connector(Login)

@@ -1,17 +1,17 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.scss'
-import NavbarComponent from './components/NavbarComponent/NavbarComponent'
-import Login from './components/Login/Login'
-import Profile from './components/Profile/Profile'
-import News from './components/News/News'
-import About from './components/About/About'
-import Tech from './components/Tech/Tech'
+import { NavbarMenu } from './components/NavbarComponent/NavbarComponent'
+import { Login } from './components/Login/Login'
+import { Profile } from './components/Profile/Profile'
+import { News } from './components/News/News'
+import { About } from './components/About/About'
+import { Tech } from './components/Tech/Tech'
 
 function App() {
   return (
     <div className="App">
-      <NavbarComponent />
+      <NavbarMenu />
       <div className="content">
         <Switch>
           <Route exact path="/" render={() => <Login /> } />

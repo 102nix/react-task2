@@ -1,4 +1,4 @@
-import {  Action } from 'redux'
+import { Action } from 'redux'
 import { AxiosResponse } from 'axios'
 import { AnswerResponseNews, AnswerResponseProfile, FormUsesData } from './ACTypes'
 
