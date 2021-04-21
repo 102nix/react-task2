@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import './App.scss'
+//components:
 import { NavbarMenu } from './components/NavbarComponent/NavbarComponent'
 import { Login } from './components/Login/Login'
 import { Profile } from './components/Profile/Profile'

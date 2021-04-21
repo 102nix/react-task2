@@ -1,5 +1,5 @@
-import { authAPI } from '../../api/api'
 import { call, put, takeEvery } from 'redux-saga/effects'
+import { authAPI } from '../../api/api'
 import { IprofileSaga } from '../../types/SagaTypes'
 import { actions } from '../AC'
 import { constsReduser } from '../../types/ACTypes'

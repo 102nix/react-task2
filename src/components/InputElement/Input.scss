@@ -1,0 +1,34 @@
+.container-input{
+  display: flex;
+  margin: 15px 0;
+  align-items: center;
+  label{
+    flex: 0 0 80px;
+    margin-right: 7px;
+  }
+  input{
+    flex: 0 0 auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    transform: scale(1);
+    transition: transform 0.3s ease 0s;
+    &:focus{
+      transform: scale(1.05);
+    }
+  }
+}
+.error{
+  text-align: center;
+  color: rgb(121, 2, 2);
+  font-size: 15px;
+}
+@media (max-width: 767px) {
+  .container-input{
+    font-size: 13px;
+    label{
+      flex: 0 0 60px;
+    }
+  }
+}

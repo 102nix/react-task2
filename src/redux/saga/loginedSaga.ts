@@ -5,10 +5,8 @@ import { IloginedSaga } from '../../types/SagaTypes'
 import { actions } from '../AC';
 
 function* loginedWorker (action: IloginedSaga) {
-  console.log('Try loggined')
   try {
     const response: IloginedSaga = yield call (authAPI.login, action.dataUserForm.email, action.dataUserForm.password)
-    console.log(response)
     yield put (actions.setLogin(response.data.status, action.dataUserForm.email))
     yield put (actions.setLoader(false))
   } catch (err) {
