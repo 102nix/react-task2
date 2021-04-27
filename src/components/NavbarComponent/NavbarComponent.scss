@@ -102,14 +102,15 @@
     }
     .header__menu{
       position: fixed;
-      margin: 0 0 0 68px;
+      width: 95%;
       z-index: 50;
-      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
       top: -100%;
       transition: all 0.7s ease 0s;
     }
     .header__menu.active{
-      top: 48px;
+      top:10px;
       padding: 20px;
       background-color: rgb(52, 52, 53);
       border-radius: 3px;

@@ -22,7 +22,6 @@ function App() {
           <Route path="/tech" render={() => <Tech /> } />
         </Switch>
       </div>
-
     </div>
   );
 }
