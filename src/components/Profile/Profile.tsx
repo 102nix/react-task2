@@ -26,17 +26,17 @@ export const Profile: React.FC = () => {
 
     return (
       <div className="profile">
-        <div className="title-profile">Профиль пользователя</div>
-        <div className="profile-img">
+        <div className="profile__title">Профиль пользователя</div>
+        <div className="profile__img">
           <img src={profilePng} alt="Card image cap" />
         </div>
-        <div className="profile-info">
-          <div className="profile-title">Пользователь с <strong>userId</strong>: {profile?.userId}</div>
-          <div className="profile-city">Город: <strong>{profile?.city}</strong></div>
+        <div className="profile__info">
+          <div className="profile__title">Пользователь с <span>userId</span>: {profile?.userId}</div>
+          <div className="profile__city">Город: <strong>{profile?.city}</strong></div>
           <div>Знание языков: <strong>{profile?.languages[0]}, {profile?.languages[1]}</strong></div>
         </div>
-        <div className="social-title">Социальные сети:</div>
-        <div className="social-actions">
+        <div className="profile__social-title">Социальные сети:</div>
+        <div className="profile__social-actions">
           {
             profile?.social === undefined &&
             <Loader />

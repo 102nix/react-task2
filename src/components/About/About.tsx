@@ -5,8 +5,8 @@ export const About: React.FC = () => {
   
   return (
     <div className="about">
-      <div className="about-title">О проекте</div>
-        <div className="about-text">
+      <div className="about__title">О проекте</div>
+        <div className="about__text">
           Данный проект это <strong>ТЗ для React-разработчика</strong>.<br/>
           Приложение использует простой «бэк» расположенный на heroku.<br/>
           Необходимо выполнить:<br/>

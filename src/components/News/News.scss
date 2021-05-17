@@ -7,24 +7,24 @@
   font-weight: bold;
   box-shadow: 7px 9px 11px #000;
   border-radius: 3px;
-  .title-news{
+  &__title{
     text-align: center;
     font-weight: bold;
     font-size: 17px
   }
-  .container-news{
+  &__container{
     margin: 40px 0;
   }
-  .title{
+  &__container-title{
     margin-bottom: 15px;
     font-size: 19px;
     text-align: center;
     font-style: italic;
   }
-  .text-news{
+  &__container-text-news{
     line-height: 25px;
   }
-  .count-news{
+  &__count{
     margin-top: 10px;
     font-style: italic;
     text-align: right;

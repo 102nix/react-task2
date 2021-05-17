@@ -2,20 +2,22 @@
   text-align: center;
   margin: 4px;
   padding: 5px;
+  &__title{
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 10px;
+  }
+  &__text{
+    margin-top: 10px;
+    padding: 20px;
+    line-height: 25px;
+    text-align: left;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 5px 7px 11px #fff;
+  }
 }
-.about-title{
-  font-weight: bold;
-  font-size: 19px;
-  margin-top: 10px;
-}
-.about-text{
-  margin-top: 10px;
-  padding: 20px;
-  line-height: 25px;
-  text-align: left;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  box-shadow: 5px 7px 11px #fff;
-}
+
+
 
 

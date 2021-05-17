@@ -2,10 +2,6 @@
   display: flex;
   margin: 15px 0;
   align-items: center;
-  label{
-    flex: 0 0 80px;
-    margin-right: 7px;
-  }
   input{
     flex: 0 0 auto;
     padding: 10px 15px;
@@ -18,6 +14,17 @@
       transform: scale(1.05);
     }
   }
+}
+.label{
+  flex: 0 0 80px;
+  margin-right: 7px;
+}
+.label_required:after{
+  content: '*';
+  position: relative;
+  top: 3px;
+  left: 4px;
+  color: red;
 }
 .error{
   text-align: center;

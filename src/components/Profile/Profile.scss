@@ -10,11 +10,14 @@
   color: #fff;
   background-color: rgba(59, 55, 248, 0.959);
 }
-.title-profile{
+.profile__title{
   font-weight: bold;
   font-size: 17px;
+  span{
+    font-style: italic;
+  }
 }
-.profile-img{
+.profile__img{
   width: 150px;
   margin: 10px auto;
   padding: 0;
@@ -23,13 +26,13 @@
     max-width: 100%;
   }
 }
-.profile-info{
+.profile__info{
   line-height: 25px;
 }
-.social-title{
+.profile__social-title{
   margin-top: 25px;
 }
-.social-actions{
+.profile__social-actions{
   margin: 10px 0;
   padding: 30px 20px;
   border-radius: 8px;

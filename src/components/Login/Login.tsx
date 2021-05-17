@@ -36,7 +36,7 @@ export const Login: React.FC = () => {
   
   return (
     <div className="login">
-      <p className="title-login">Login:</p>
+      <p className="login__title">Login:</p>
       <Formik
         initialValues={{
           email: email,
@@ -60,6 +60,7 @@ export const Login: React.FC = () => {
             type="email"
             name="email"
             placeholder="Email"
+            required={true}
           />
           <Input
             label="Password"
@@ -67,8 +68,9 @@ export const Login: React.FC = () => {
             type="password"
             name="password"
             placeholder="Password"
+            required={true}
           />
-          <div className="actions">
+          <div className="login__actions">
             {
               !load ? ( <button className="btn-login">Login</button> ) : <Loader />  
             }

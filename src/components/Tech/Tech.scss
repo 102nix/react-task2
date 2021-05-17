@@ -2,18 +2,18 @@
   text-align: center;
   margin: 4px;
   padding: 5px;
-}
-.tech-title{
-  margin-top: 10px;
-  font-weight: bold;
-  font-size: 19px;
-}
-.tech-text{
-  margin-top: 10px;
-  padding: 20px;
-  text-align: left;
-  line-height: 25px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  box-shadow: 5px 7px 11px #fff;
+  &__title{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 19px;
+  }
+  &__text{
+    margin-top: 10px;
+    padding: 20px;
+    text-align: left;
+    line-height: 25px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: 5px 7px 11px #fff;
+  }
 }

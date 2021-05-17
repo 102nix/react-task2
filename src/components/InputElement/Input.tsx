@@ -10,7 +10,12 @@ export const Input: React.FC<IValuesInput> =({label, ...props}) => {
   return (
     <>
       <div className="container-input">
-        <label htmlFor={props.id || props.name}>{label}</label>
+        <label 
+          htmlFor={props.id || props.name}
+          className={(props.required) ? 'label label_required' : 'label' }
+        >
+          {label}
+        </label>
         <input
           className="form-input"
           {...field}
